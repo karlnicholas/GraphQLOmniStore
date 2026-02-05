@@ -25,6 +25,7 @@
         <module>catalog</module>
         <module>inventory</module>
         <module>review</module>
+        <module>gateway</module>
     </modules>
 
 </project>

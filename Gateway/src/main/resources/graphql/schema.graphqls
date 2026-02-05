@@ -1,0 +1,25 @@
+type Query {
+    # Aggregated Product that contains everything
+    product(id: ID!): Product
+}
+
+type Product {
+    id: ID!
+    name: String
+    price: String
+
+    # These fields come from OTHER services!
+    inventory: Inventory
+    reviews: [Review]
+}
+
+type Inventory {
+    quantity: Int
+    location: String
+}
+
+type Review {
+    author: String
+    comment: String
+    starRating: Int
+}
