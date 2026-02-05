@@ -1,0 +1,11 @@
+type Query {
+    # We look up inventory by the product's ID
+    inventory(productId: String!): Inventory
+}
+
+type Inventory {
+    id: ID!
+    productId: String
+    quantity: Int
+    location: String
+}

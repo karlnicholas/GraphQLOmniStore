@@ -1,0 +1,11 @@
+type Query {
+    reviews(productId: String!): [Review]
+}
+
+type Review {
+    id: ID!
+    productId: String
+    author: String
+    comment: String
+    starRating: Int
+}

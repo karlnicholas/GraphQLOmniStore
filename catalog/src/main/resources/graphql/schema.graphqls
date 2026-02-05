@@ -1,0 +1,12 @@
+type Query {
+    products: [Product]
+    product(id: ID!): Product
+}
+
+type Product {
+    id: ID!
+    name: String
+    # We use String to transmit money precisely.
+    # The client parses "120.50" to a BigDec/Money type.
+    price: String
+}
