@@ -33,6 +33,18 @@ class GatewayDataFetcher {
         .toFuture();
   }
 
+// inside GatewayDataFetcher class...
+
+  public CompletableFuture<List<Map>> getProducts() {
+    // We fetch the ID, Name, and Price from the Catalog Service
+    String document = "{ products { id name price } }";
+
+    return catalogClient.document(document)
+        .retrieve("products")
+        .toEntityList(Map.class)
+        .toFuture();
+  }
+
   // 2. Fetch Inventory for that Product
   // Changed return type to explicit Map
   public CompletableFuture<Map> getInventoryForProduct(DataFetchingEnvironment env) {

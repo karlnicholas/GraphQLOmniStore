@@ -44,7 +44,9 @@ public class GatewayApplication {
   public RuntimeWiringConfigurer runtimeWiringConfigurer(GatewayDataFetcher dataFetcher) {
     return wiringBuilder -> wiringBuilder
         .type("Query", type -> type
-            .dataFetcher("product", dataFetcher::getProduct))
+            .dataFetcher("product", dataFetcher::getProduct)
+            // 2. ADD THIS LINE:
+            .dataFetcher("products", env -> dataFetcher.getProducts()))
         .type("Product", type -> type
             .dataFetcher("inventory", dataFetcher::getInventoryForProduct)
             .dataFetcher("reviews", dataFetcher::getReviewsForProduct));

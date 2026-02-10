@@ -1,4 +1,7 @@
 type Query {
+    # 1. ADD THIS LINE:
+    products: [Product]
+
     # Aggregated Product that contains everything
     product(id: ID!): Product
 }
